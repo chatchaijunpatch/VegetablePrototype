@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinkao Restaurant Service Website</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h1 class="display-6">Restaurants</h1>
+
+    <form th:action="@{/vegetable/add}" method="POST">
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="name">
+            <option selected>Select Veggie</option>
+            <option value="cabbage" >Cabbage</option>
+            <option value="carrot" >Carrot</option>
+            <option value="Watermelon" >Watermelon</option>
+        </select>
+        <div class="mb-3">
+            <label for="priceInput" class="form-label">Price</label>
+            <input id="priceInput" type="text" class="form-control" name="price">
+        </div>
+        <div class="mb-3">
+            <label for="weightInput" class="form-label">Weight</label>
+            <input id="weightInput" type="text" class="form-control" name="weight">
+        </div>
+        <div class="mb-3">
+            <label for="amountInput" class="form-label">Amount</label>
+            <input id="amountInput" type="text" class="form-control" name="amount">
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+
+    </form>
+
+
+</div>
+</body>
+</html>

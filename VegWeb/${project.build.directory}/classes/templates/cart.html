@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinkao Restaurant Service Website</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h1 class="display-6">Cart Vegetable</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>price</th>
+            <th>quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="restaurant : ${carts}">
+            <td th:text="${restaurant.getVegetable().name}"></td>
+            <td th:text="${restaurant.getVegetable().price}"></td>
+            <td th:text="${restaurant.getQuantity()}"></td>
+            <td>
+                <a th:href="@{/cart/remove/{id}(id=${restaurant.getVegetable().id})}">
+                    <button type="button" class="btn btn-primary">Delete</button>
+                </a>
+            </td>
+        </tr>
+        <h1 th:text="${'Total '+ priceCal +' Baht'}"></h1>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinkao Restaurant Service Website</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/myjs.js}"></script>
+
+</head>
+<body>
+<div class="input-group mb-3 d-flex justify-content-center">
+    <div class="input-group-append">
+        <form th:action="@{/cart}" method="post" th:each="vegetable : ${vegetables}"} >
+            <div class="container" style="margin-top:50px;">
+                    <table style="width: 100%">
+                        <tbody>
+                            <tr>
+                                    <div class="card custom-card text-center mr-2 mt-2 ml-2 mb-2"
+                                         style="width: 18rem; display: inline-block; margin-right: 30px;">
+                                        <div class="card-body">
+                                            <h5 class="card-title" th:text="${'Vegetable : ' + vegetable.getName()}">Id</h5>
+                                            <img alt="" class="rounded-circle img-responsive mt-2"
+                                                 height="128" th:src="${'../../images/'+ vegetable.name +'.jpg'}" width="128">
+                                            <p class="card-text" style="text-align:left;" th:text="${'Weight    : ' + vegetable.weight + ' KG'}">Weight</p>
+                                            <p class="card-text" style="text-align:left;" th:text="${'Avaliable : ' + vegetable.amount + ' KG'}">Amount</p>
+                                            <p class="card-text" style="text-align:left;" th:text="${'Price/KG  : ' + vegetable.price + ' Baht'}" th:value="${vegetable.price}">Price</p>
+                                        </div >
+                                            <div class="input-group mb-3 d-flex justify-content-center">
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-light increase" th:onclick="decrementValue([[${vegetable}]])"  value="-" style="border-style: hidden;">-</button>
+                                                    <fieldset disabled>
+                                                        <input   type="number" style="text-align: center;border-style: hidden;background:none;"   th:id="${vegetable.id+'increase'}"  value="0" />
+                                                    </fieldset>
+                                                    <button type="button" class="btn btn-light" th:onclick="incrementValue([[${vegetable}]])"  value="+" style="border-style: hidden;">+</button>
+                                                </div>
+                                                <input hidden type="text" th:name="name" th:value="${vegetable.id}">
+                                                <input  hidden type="number" style="text-align: center;border-style: hidden;background:none;"  th:id="${vegetable.id+'increase2'}" th:name="num" value="0" />
+
+
+                                                <!--        &lt;!&ndash;                                        <a class="btn btn-primary" th:href="@{/cart/buy/{id}/{q}(id=${vegetable.getVegetable().id},q=${current})}" methods="POST">Buy Now</a>&ndash;&gt;-->
+                                                <button  class="btn btn-primary" type="submit">Add</button>
+                                             </div>
+                                    </div>
+                            </tr>
+                        </tbody>
+                    </table>
+
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

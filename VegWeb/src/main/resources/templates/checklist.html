@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinkao Restaurant Service Website</title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:insert="fragments/header :: header"></div>
+
+<div class="container">
+    <h1 class="display-6">Vegetable List</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <div>
+            <tr scope="column">
+                <th>Date</th>
+                <th>name</th>
+                <th>phone</th>
+                <th>address</th>
+                <th>vegetable name</th>
+                <th>price</th>
+                <th>quantity</th>
+                <th>Status</th>
+                <th>PaymentDate</th>
+
+            </tr>
+        </div>
+        </thead>
+        <tbody>
+<!--        <div th:each="order : ${veglist}">-->
+<!--        <tr sec:authorize="hasRole('ADMIN')" id="list" class="ord"  scope="row">-->
+
+<!--            <td th:text="${order.date}"></td>-->
+<!--            <td th:text="${order.name}"></td>-->
+<!--            <td th:text="${order.mobile}"></td>-->
+<!--            <td th:text="${order.address}"></td>-->
+<!--            <td >-->
+<!--                <ul th:each="i : ${order.getCartList()}">-->
+<!--                    <span th:text="${i.getVegetable().name}"></span>-->
+<!--                </ul>-->
+<!--            </td>-->
+<!--            <td >-->
+<!--                <ul th:each="i : ${order.getCartList()}">-->
+<!--                    <span th:text="${i.getVegetable().price}+ ' &#3647;'"></span>-->
+<!--                </ul>-->
+<!--            </td>-->
+<!--            <td >-->
+<!--                <ul th:each="i : ${order.getCartList()}">-->
+<!--                    <span th:text="${i.getQuantity()}"></span>-->
+<!--                </ul>-->
+<!--            </td>-->
+<!--            <td th:text="${order.status}"></td>-->
+<!--            <td sec:authorize="hasRole('ADMIN')" style="text-align: center">-->
+<!--                <a class="btn btn-primary" >Edit</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </div>-->
+
+
+        <div th:each="order : ${veglist}">
+            <tr id="list" class="ord"  scope="row">
+
+                <td th:text="${order.date}"></td>
+                <td th:text="${order.name}"></td>
+                <td th:text="${order.mobile}"></td>
+                <td th:text="${order.address}"></td>
+                <td >
+                    <ul th:each="i : ${order.getCartList()}">
+                        <span th:text="${i.getVegetable().name}"></span>
+                    </ul>
+                </td>
+                <td >
+                    <ul th:each="i : ${order.getCartList()}">
+                        <span th:text="${i.getVegetable().price}+ ' &#3647;'"></span>
+                    </ul>
+                </td>
+                <td >
+                    <ul th:each="i : ${order.getCartList()}">
+                        <span th:text="${i.getQuantity()}"></span>
+                    </ul>
+                </td>
+                <td th:text="${order.status}"></td>
+                <td th:text="${order.payment}"></td>
+                <td sec:authorize="hasRole('ADMIN')" style="text-align: center">
+                    <a th:href="@{/order/list/edit/{id}(id=${order.getOrder_Id()})}" ><button type="button" class="btn btn-primary">Payment</button>
+                    </a>
+                </td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+</div>
+
+</body>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #ddd;
+        height: 100vh;
+    }
+</style>
+</html>
