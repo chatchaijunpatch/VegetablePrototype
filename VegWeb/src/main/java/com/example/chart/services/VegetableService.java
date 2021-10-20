@@ -1,6 +1,7 @@
 package com.example.chart.services;
 
 import com.example.chart.entities.Cart;
+import com.example.chart.entities.VegOrder;
 import com.example.chart.entities.Vegetable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -51,5 +52,19 @@ public class VegetableService {
                 restTemplate.getForEntity(url, Vegetable.class);
         Vegetable vegetable = response.getBody();
         return vegetable;
+    }
+
+    public void update(List<Cart> cart){
+        for (int i =0; i <cart.size();i++){
+            Vegetable update = this.getOneById(cart.get(i).getVegetable().getId());
+            update.setAmount(update.getAmount()-cart.get(i).getQuantity());
+            String url = "http://localhost:8090/vegetable/" + update.getId();
+            if (update.getAmount() != 0){
+                restTemplate.put(url, update, Vegetable.class);
+            }
+            else {
+                restTemplate.delete(url, update, Vegetable.class);
+            }
+        }
     }
 }

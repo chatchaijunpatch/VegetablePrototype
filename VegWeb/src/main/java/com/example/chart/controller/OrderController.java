@@ -2,8 +2,10 @@ package com.example.chart.controller;
 
 import com.example.chart.entities.Cart;
 import com.example.chart.entities.VegOrder;
+import com.example.chart.entities.Vegetable;
 import com.example.chart.services.CartService;
 import com.example.chart.services.OrderService;
+import com.example.chart.services.VegetableService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +28,8 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
     private int total;
-
+    @Autowired
+    private VegetableService vegetableService;
 
     @GetMapping("")
     public String getOrder(Model model){
@@ -50,9 +53,9 @@ public class OrderController {
         order.setDate(calndr.getTime());
         orderService.addOrder(order);
         service.removeall();
-//        return "address";
         return "redirect:/order/list";
         }
+
 
 
 

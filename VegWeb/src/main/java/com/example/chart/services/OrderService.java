@@ -78,6 +78,16 @@ public class OrderService {
         }
         return cart2;
     }
+    public VegOrder getDummyByID(UUID id){
+        VegOrder vegOrder = new VegOrder();
+        for (int i=0;i < cart.size();i++){
+            if (cart.get(i).getOrder_Id().equals(id)){
+                vegOrder = cart.get(i);
+                return vegOrder;
+            }
+        }
+        return vegOrder;
+    }
     public VegOrder getOneById(UUID id)
     {
         String url = "http://localhost:8090/order/" + id;
@@ -89,6 +99,10 @@ public class OrderService {
     public void update(VegOrder vegetable) {
         String url = "http://localhost:8090/order/" + vegetable.getOrder_Id();
         restTemplate.put(url, vegetable, VegOrder.class);
+    }
+    public void delete(VegOrder vegetable) {
+        String url = "http://localhost:8090/order/" + vegetable.getOrder_Id();
+        restTemplate.delete(url, vegetable, VegOrder.class);
     }
 
 }
