@@ -1,0 +1,60 @@
+/*
+* Global Set
+*
+*/
+body {
+    margin: 0;
+    padding: 0;
+    background: #EBF3F5;
+    height: 100vh;
+}
+header {
+    padding: 40px;
+    min-height: 200px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+}
+header > * {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+header > :last-child {
+    margin-bottom: 0;
+}
+h1 {
+    margin-bottom: 0.5em;
+    font-weight: inherit;
+    line-height: 1.2;
+    color: #1c5b72;
+    font-size: 2.618em;
+}
+h2 {
+    color: #1c5b72;
+}
+@media (min-width: 800px) {
+    h1 {
+        font-size: 4.236em;
+        font-weight: 300;
+    }
+}
+p {
+    margin-bottom: 1.3em;
+    line-height: 1.618;
+}
+@media (min-width: 800px) {
+    p {
+        font-size: 1.3em;
+    }
+}
+a {
+    color: #1c5b72;
+    text-decoration: none;
+}
+table{
+    background: #98afc7 !important;
+    color: #ffffff !important;
+    font-size: 1.25em !important;
+}
+
+

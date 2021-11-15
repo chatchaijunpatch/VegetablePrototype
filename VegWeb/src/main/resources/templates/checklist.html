@@ -2,19 +2,26 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Kinkao Restaurant Service Website</title>
+    <title>Veggian Order List</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link th:rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:insert="fragments/header :: header"></div>
 
-<div class="container">
-    <h1 class="display-6">Vegetable List</h1>
+<header>
+    <h1 class="display-6">Order List</h1>
+    <h2 class="display-6">รายการสั่งซื้อ</h2>
 
-    <table class="table table-striped">
+</header>
+<div class="container">
+    <div class="table-responsive-lg">
+    <table class="table">
         <thead>
-        <div>
             <tr scope="column">
                 <th>Date</th>
                 <th>name</th>
@@ -27,41 +34,9 @@
                 <th>PaymentDate</th>
 
             </tr>
-        </div>
         </thead>
         <tbody>
-<!--        <div th:each="order : ${veglist}">-->
-<!--        <tr sec:authorize="hasRole('ADMIN')" id="list" class="ord"  scope="row">-->
-
-<!--            <td th:text="${order.date}"></td>-->
-<!--            <td th:text="${order.name}"></td>-->
-<!--            <td th:text="${order.mobile}"></td>-->
-<!--            <td th:text="${order.address}"></td>-->
-<!--            <td >-->
-<!--                <ul th:each="i : ${order.getCartList()}">-->
-<!--                    <span th:text="${i.getVegetable().name}"></span>-->
-<!--                </ul>-->
-<!--            </td>-->
-<!--            <td >-->
-<!--                <ul th:each="i : ${order.getCartList()}">-->
-<!--                    <span th:text="${i.getVegetable().price}+ ' &#3647;'"></span>-->
-<!--                </ul>-->
-<!--            </td>-->
-<!--            <td >-->
-<!--                <ul th:each="i : ${order.getCartList()}">-->
-<!--                    <span th:text="${i.getQuantity()}"></span>-->
-<!--                </ul>-->
-<!--            </td>-->
-<!--            <td th:text="${order.status}"></td>-->
-<!--            <td sec:authorize="hasRole('ADMIN')" style="text-align: center">-->
-<!--                <a class="btn btn-primary" >Edit</a>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        </div>-->
-
-
-        <div th:each="order : ${veglist}">
-            <tr id="list" class="ord"  scope="row">
+            <tr th:each="order : ${veglist}">
 
                 <td th:text="${order.date}"></td>
                 <td th:text="${order.name}"></td>
@@ -93,18 +68,12 @@
                     </a>
                 </td>
             </tr>
-        </div>
         </tbody>
     </table>
+    </div>
 </div>
 
 </body>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: #ddd;
-        height: 100vh;
-    }
 </style>
 </html>

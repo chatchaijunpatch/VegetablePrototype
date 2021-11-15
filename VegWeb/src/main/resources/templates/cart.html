@@ -2,17 +2,23 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Kinkao Restaurant Service Website</title>
+    <title>Veggian Cart</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link th:rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:insert="fragments/header :: header"></div>
-
-<div class="container">
+<header>
     <h1 class="display-6">Cart Vegetable</h1>
+    <h2 class="display-6">ตะกร้าสินค้า</h2>
 
-    <table class="table table-striped">
+</header>
+<div class="container">
+    <table class="table ">
         <thead>
         <tr>
             <th>name</th>
@@ -27,25 +33,17 @@
             <td th:text="${restaurant.getQuantity()}"></td>
             <td>
                 <a th:href="@{/cart/remove/{id}(id=${restaurant.getVegetable().id})}">
-                    <button type="button" class="btn btn-primary">Delete</button>
+                    <button type="button" class="btn btn-light">Delete</button>
                 </a>
             </td>
         </tr>
-        <h1 th:text="${'Total '+ priceCal +' Baht'}"></h1>
+        <h2 th:text="${'Total '+ priceCal +' Baht'}"></h2>
         </tbody>
     </table>
 </div>
-<div class="d-flex justify-content-center">    <a  class="btn btn-primary" th:href="@{/order}" type="submit">Payment</a>
+<div class="d-flex justify-content-center" th:if="${carts.size() != 0}">    <a  class="btn  btn-dark" th:href="@{/order}" type="submit">Payment</a>
 </div>
 </body>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: #ddd;
-        height: 100vh;
-    }
 
-</style>
 
 </html>
