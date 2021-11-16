@@ -59,11 +59,11 @@
                 </td>
                 <td th:text="${order.status}"></td>
                 <td th:text="${order.payment}"></td>
-                <td sec:authorize="hasRole('ADMIN')" style="text-align: center">
+                <td sec:authorize="hasRole('ADMIN')" style="text-align: center" th:if="${order.status != 'Payment'}">
                     <a th:href="@{/order/list/edit/{id}(id=${order.getOrder_Id()})}" ><button type="button" class="btn btn-primary">Payment</button>
                     </a>
                 </td>
-                <td sec:authorize="hasRole('ADMIN')" style="text-align: center">
+                <td sec:authorize="hasRole('ADMIN')" style="text-align: center" >
                     <a th:href="@{/order/list/remove/{id}(id=${order.getOrder_Id()})}" ><button type="button" class="btn btn-primary">Delete</button>
                     </a>
                 </td>

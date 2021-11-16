@@ -46,6 +46,7 @@ public class OrderService
         record.setUsername(requestBody.getUsername());
         record.setPayment(requestBody.getPayment());
         record.setPrice(requestBody.getPrice());
+        record.setEmail(requestBody.getEmail());
         record.setStatus(requestBody.getStatus());
 
         repository.save(record);

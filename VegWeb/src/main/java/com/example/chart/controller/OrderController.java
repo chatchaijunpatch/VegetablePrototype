@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,7 +47,16 @@ public class OrderController {
         return "address";
     }
     @PostMapping("/address")
-        public String addOrder(Model model, @ModelAttribute VegOrder order){
+        public String addOrder(Model model, @ModelAttribute VegOrder order, RedirectAttributes redirectAttrs){
+        System.out.println(order.getCartList().toString().equals("[]"));
+        if (((order.getName().equals("")) || (order.getSurname().equals(""))) || (order.getAddress().equals("")) || (order.getEmail().equals("")) || (order.getMobile().equals(""))){
+            redirectAttrs.addFlashAttribute("error","Please Correct all");
+            return "redirect:/order/address";
+        }
+        else if (order.getCartList().toString().equals("[]")){
+            redirectAttrs.addFlashAttribute("error","Please put something in cart ");
+            return "redirect:/order/address";
+        }
         total = service.priceCalculate();
         model.addAttribute("priceCal", total);
         Calendar calndr = Calendar.getInstance();

@@ -16,7 +16,6 @@ public class Vegetable
     private UUID id;
     private String name;
     private double price;
-    private double weight;
     private int amount;
 
     public String getName() {
@@ -35,13 +34,6 @@ public class Vegetable
         this.price = price;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
 
     public int getAmount() {
         return amount;

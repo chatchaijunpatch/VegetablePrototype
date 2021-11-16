@@ -2,37 +2,48 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Kinkao Restaurant Service Website</title>
+    <title>Veggian add Vegetable</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
+    <link th:rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:insert="fragments/header :: header"></div>
+<div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
 <div class="container">
-    <h1 class="display-6">Restaurants</h1>
+    <header>
+        <h1 class="display-6">Add Vegetable</h1>
+        <h2 class="display-6">เพิ่มผัก</h2>
 
+    </header>
     <form th:action="@{/vegetable/add}" method="POST">
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="name">
+        <div>
+        <div><label for="priceInput" class="form-label"><h3><strong>Vegetable</strong></h3></label></div>
+        <select class="form-select form-control form-select-lg add " id="exampleFormControlSelect1" aria-label=".form-select-lg example" name="name">
             <option selected>Select Veggie</option>
             <option value="cabbage" >Cabbage</option>
             <option value="carrot" >Carrot</option>
             <option value="Watermelon" >Watermelon</option>
         </select>
-        <div class="mb-3">
-            <label for="priceInput" class="form-label">Price</label>
-            <input id="priceInput" type="text" class="form-control" name="price">
+        <div><label for="priceInput" class="form-label"><h3><strong>Price</strong></h3></label></div>
+        <div class="input-group ">
+            <input id="priceInput" type="number" class="form-control add" name="price"  placeholder="Baht/KG หน่วยบาทต่อกิโลกรัม">
         </div>
-        <div class="mb-3">
-            <label for="weightInput" class="form-label">Weight</label>
-            <input id="weightInput" type="text" class="form-control" name="weight">
+<!--        <div class="mb-3">-->
+<!--            <label for="weightInput" class="form-label">Weight</label>-->
+<!--            <input id="weightInput" type="text" class="form-control" name="weight">-->
+<!--        </div>-->
+        <div><label for="amountInput" class="form-label"><h3><strong>Amount</strong></h3></label></div>
+        <div class="input-group ">
+            <input id="amountInput" type="number" class="form-control add" th:name="amount"  placeholder="KG/กิโลกรัม">
         </div>
-        <div class="mb-3">
-            <label for="amountInput" class="form-label">Amount</label>
-            <input id="amountInput" type="text" class="form-control" name="amount">
         </div>
-
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-dark">Add</button>
+
         </div>
 
     </form>
@@ -41,11 +52,5 @@
 </div>
 </body>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: #ddd;
-        height: 100vh;
-    }
 </style>
 </html>

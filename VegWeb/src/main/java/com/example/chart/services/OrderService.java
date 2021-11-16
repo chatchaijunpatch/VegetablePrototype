@@ -58,8 +58,8 @@ public class OrderService {
                 for (int k =0;k<list1.size();k++){
 //                    System.out.println(list1.get(k).trim());
                 }
-                Vegetable vegetable = new Vegetable(UUID.fromString(list1.get(0)),list1.get(1),Double.parseDouble(list1.get(2)),Double.parseDouble(list1.get(3)),parseInt(list1.get(4)));
-                cart.get(i).add(new Cart(vegetable,parseInt(list1.get(5))));
+                Vegetable vegetable = new Vegetable(UUID.fromString(list1.get(0)),list1.get(1),Double.parseDouble(list1.get(2)),parseInt(list1.get(3)));
+                cart.get(i).add(new Cart(vegetable,parseInt(list1.get(4))));
             }
         }
     }

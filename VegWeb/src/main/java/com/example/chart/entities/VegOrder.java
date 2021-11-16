@@ -21,12 +21,21 @@ public class VegOrder
     private String mobile;
     private String address;
     private String vegetable ;
+    private String email;
     private List<Cart> cartList = new ArrayList<>();
     private int amount;
     private String username;
     private Double price;
     private String status;
     private Date payment;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public List<Cart> getCartList() {
         return cartList;

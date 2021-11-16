@@ -41,6 +41,9 @@
                 <li sec:authorize="hasRole('USER')" class="nav-item">
                     <a class="nav-link" th:href="@{/vegetable}">Vegetable</a>
                 </li>
+                <li sec:authorize="hasRole('ADMIN')" class="nav-item">
+                    <a class="nav-link" th:href="@{/vegetable}">Vegetable</a>
+                </li>
                 <li sec:authorize="hasRole('USER')" class="nav-item">
                     <a class="nav-link" th:href="@{/cart}">Cart</a>
                 </li>

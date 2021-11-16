@@ -52,9 +52,30 @@ a {
     text-decoration: none;
 }
 table{
-    background: #98afc7 !important;
-    color: #ffffff !important;
+    background: #ffffff !important;
+    color: #1c5b72 !important;
     font-size: 1.25em !important;
+}
+/*login*/
+#login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 350px;
+    /*border: 1px solid #1c5b72;*/
+    background-color: #ffffff;
+}
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+}
+.form-control{
+    margin-bottom: 2rem !important;
+    background: #e8e8e8 !important;
+}
+.add{
+    background: #ffffff !important;
 }
 
 

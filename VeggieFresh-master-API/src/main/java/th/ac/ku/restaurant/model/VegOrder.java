@@ -20,6 +20,7 @@ public class VegOrder
     private String surname;
     private String mobile;
     private String address;
+    private String email;
 //    private String vegetable;
 //    @ElementCollection
     private String vegetable ;
@@ -28,6 +29,14 @@ public class VegOrder
     private Double price;
     private String status;
     private Date payment;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public void setPayment(Date payment) {
         this.payment = payment;
@@ -92,14 +101,6 @@ public class VegOrder
     public void setAddress(String address) {
         this.address = address;
     }
-
-//    public String getVegetable() {
-//        return vegetable;
-//    }
-//
-//    public void setVegetable(String vegetable) {
-//        this.vegetable = vegetable;
-//    }
 
     public int getAmount() {
         return amount;

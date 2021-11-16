@@ -2,11 +2,14 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Vegetable Service Website</title>
+    <title>Veggian Register</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
     <script th:src="@{/js/myjs.js}"></script>
-
+    <link th:rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body>
 <div th:insert="fragments/header :: header"></div>
@@ -14,21 +17,21 @@
 <form th:action="@{/register}" method="post">
         <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
         <label>
-            <p class="label-txt">ENTER YOUR EMAIL</p>
+            <p class="label-txt"><strong>ENTER YOUR EMAIL</strong></p>
             <input type="text" class="input" th:name="email" placeholder="Email">
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
         <label>
-            <p class="label-txt">ENTER YOUR NAME</p>
+            <p class="label-txt"><strong>ENTER YOUR NAME</strong></p>
             <input type="text" class="input" th:name="name" placeholder="Name">
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
         <label>
-            <p class="label-txt">ENTER YOUR USERNAME</p>
+            <p class="label-txt"><strong>ENTER YOUR USERNAME</strong></p>
             <input type="text" class="input" th:name="username" placeholder="Username">
             <div class="line-box">
                 <div class="line"></div>
@@ -36,14 +39,14 @@
 
         </label>
         <label>
-            <p class="label-txt">ENTER YOUR PASSWORD</p>
+            <p class="label-txt"><strong>ENTER YOUR PASSWORD</strong></p>
             <input type="password" class="input" id="exampleInputPassword1 " placeholder="Password" th:name="password">
             <div class="line-box">
                 <div class="line"></div>
             </div>
         </label>
         <label>
-            <p class="label-txt">CONFIRM PASSWORD</p>
+            <p class="label-txt"><strong>CONFIRM PASSWORD</strong></p>
             <input type="password" class="input" id="exampleInputPassword1 " placeholder="Confirm Password" th:name="repassword">
             <div class="line-box">
                 <div class="line"></div>
@@ -52,11 +55,11 @@
     <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group" role="group" aria-label="First group">
             <a th:href="@{/login}">
-                <button type="button" class="btn btn-info btn-md">back</button>
+                <button type="button" class="btn  btn-dark">back</button>
             </a>
         </div>
         <div class="input-group">
-        <button type="submit" class="btn btn-info btn-md">submit</button>
+        <button type="submit" class="btn  btn-dark">submit</button>
         </div>
     </div>
     </form>
@@ -67,12 +70,12 @@
     body {
         margin: 0;
         padding: 0;
-        background: #ddd;
+        background: #EBF3F5;
         height: 100vh;    }
     form {
         width: 60%;
         margin: 60px auto;
-        background: #efefef;
+        background: #ffffff;
         padding: 60px 120px 80px 120px;
         text-align: center;
         -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);

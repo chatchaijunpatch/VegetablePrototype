@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Veggian Shop</title>
@@ -26,11 +26,10 @@
                                             <h5 class="card-title" th:text="${'Vegetable : ' + vegetable.getName()}">Id</h5>
                                             <img alt="" class="rounded-circle img-responsive mt-2"
                                                  height="128" th:src="${'../../images/'+ vegetable.name +'.jpg'}" width="128">
-                                            <p class="card-text" style="text-align:left;" th:text="${'Weight    : ' + vegetable.weight + ' KG'}">Weight</p>
                                             <p class="card-text" style="text-align:left;" th:text="${'Avaliable : ' + vegetable.amount + ' KG'}">Amount</p>
                                             <p class="card-text" style="text-align:left;" th:text="${'Price/KG  : ' + vegetable.price + ' Baht'}" th:value="${vegetable.price}">Price</p>
                                         </div >
-                                            <div class="input-group mb-3 d-flex justify-content-center">
+                                            <div class="input-group mb-3 d-flex justify-content-center" sec:authorize="hasRole('USER')">
                                                 <div class="input-group-append">
                                                     <button type="button" class="btn btn-light increase" th:onclick="decrementValue([[${vegetable}]])"  value="-" style="border-style: hidden;">-</button>
                                                     <fieldset disabled>

@@ -2,34 +2,20 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Vegetable Service Website</title>
+    <title>Veggian address</title>
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     <script th:src="@{/js/bootstrap.min.js}"></script>
     <script th:src="@{/js/myjs.js}"></script>
+    <link th:rel="stylesheet" th:href="@{/css/styles.css}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- Font Awesome -->
-    <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-            rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-            rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
-            rel="stylesheet"
-    />
-    <!-- MDB -->
-    <script
-            type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
-    ></script>
 
 </head>
 <body>
 <div th:insert="fragments/header :: header"></div>
+<div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>
 <form th:action="@{/order/address}" method="post">
 <div class="align-middle middle">
 <div class="d-flex justify-content-center align-self-center ">
@@ -46,14 +32,14 @@
                             <div class="row mb-4">
                                 <div class="col">
                                     <div class="form-outline">
-                                        <input type="text" id="form7Example1" class="form-control" th:name="name" />
                                         <label class="form-label" for="form7Example1">First name</label>
+                                        <input type="text" id="form7Example1" class="form-control" th:name="name" />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
-                                        <input type="text" id="form7Example2" class="form-control" th:name="surname"/>
                                         <label class="form-label" for="form7Example2">Last name</label>
+                                        <input type="text" id="form7Example2" class="form-control" th:name="surname"/>
                                     </div>
                                 </div>
                             </div>
@@ -66,20 +52,20 @@
 
                             <!-- Text input -->
                             <div class="form-outline mb-4">
-                                <input type="text" id="form7Example4" class="form-control" th:name="address"/>
                                 <label class="form-label" for="form7Example4">Address</label>
+                                <input type="text" id="form7Example4" class="form-control" th:name="address"/>
                             </div>
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <input type="email" id="form7Example5" class="form-control" />
                                 <label class="form-label" for="form7Example5">Email</label>
+                                <input type="email" id="form7Example5" class="form-control" th:name="email" />
                             </div>
 
                             <!-- Number input -->
                             <div class="form-outline mb-4">
-                                <input type="number" id="form7Example6" class="form-control"th:name="mobile"/>
                                 <label class="form-label" for="form7Example6">Phone</label>
+                                <input type="number" id="form7Example6" class="form-control"th:name="mobile"/>
                             </div>
 
                             <!-- Message input -->
@@ -126,7 +112,7 @@
                             </li>
                         </ul>
 
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-dark">
                             Make purchase
                         </button>
                     </div>
@@ -138,6 +124,9 @@
 </form>
 </body>
 <style>
+    body{
+        background: #EBF3F5;
+    }
     @media(min-width:860px) {
         .middle {
             margin: 25vh auto;

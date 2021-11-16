@@ -7,7 +7,7 @@ public class Vegetable
     private UUID id;
     private String name;
     private double price;
-    private double weight;
+//    private double weight;
     private int amount;
 
     public UUID getId() {
@@ -18,11 +18,11 @@ public class Vegetable
         this.id = id;
     }
 
-    public Vegetable(UUID id, String name, double price, double weight, int amount) {
+    public Vegetable(UUID id, String name, double price, int amount) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.weight = weight;
+//        this.weight = weight;
         this.amount = amount;
     }
 
@@ -42,13 +42,13 @@ public class Vegetable
         this.price = price;
     }
 
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
+//    public double getWeight() {
+//        return weight;
+//    }
+//
+//    public void setWeight(double weight) {
+//        this.weight = weight;
+//    }
 
     public int getAmount() {
         return amount;
@@ -64,7 +64,6 @@ public class Vegetable
                 id +
                 "->" + name +
                 "->" + price +
-                "->" + weight +
                 "->" + amount ;
     }
 }

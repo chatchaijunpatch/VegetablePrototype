@@ -35,7 +35,6 @@ public class VegetableService
         Vegetable record = repository.findById(id).get();
         record.setName(requestBody.getName());
         record.setPrice(requestBody.getPrice());
-        record.setWeight(requestBody.getWeight());
         record.setAmount(requestBody.getAmount());
 
         repository.save(record);
