@@ -6,7 +6,6 @@ import com.example.chart.entities.Vegetable;
 import com.example.chart.services.CartService;
 import com.example.chart.services.OrderService;
 import com.example.chart.services.VegetableService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,7 +52,7 @@ public class OrderController {
             redirectAttrs.addFlashAttribute("error","Please Correct all");
             return "redirect:/order/address";
         }
-        else if (order.getCartList().toString().equals("[]")){
+        else if (service.getCart().toString().equals("[]")){
             redirectAttrs.addFlashAttribute("error","Please put something in cart ");
             return "redirect:/order/address";
         }
