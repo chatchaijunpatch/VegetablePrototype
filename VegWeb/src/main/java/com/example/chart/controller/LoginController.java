@@ -29,6 +29,10 @@ public class LoginController {
 //
 //        return "login";
 //    }
+    @RequestMapping("")
+    public  String getHome(){
+        return "home";
+    }
 
     @RequestMapping("/register")
     public String getRegister(){

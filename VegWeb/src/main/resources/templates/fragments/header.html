@@ -23,7 +23,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="header">
 
 <!--    <div class="container-fluid">-->
-        <img src="https://i.ibb.co/Byhk1Kk/logo.png" style="padding-left:10px;" alt="">
+
+    <a   th:href="@{/}"><img class="fragment" src="https://i.ibb.co/Byhk1Kk/logo.png" style="padding-left:10px;" alt=""> </a>
+
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,7 +37,7 @@
                     <a class="nav-link" th:href="@{/vegetable}">Vegetable</a>
                 </li>
                 <li sec:authorize="isAnonymous()" class="nav-item">
-                    <a class="nav-link" th:href="@{/order}">Order</a>
+                    <a class="nav-link" th:href="@{/order/list}">Order</a>
                 </li>
                 </li>
                 <li sec:authorize="hasRole('USER')" class="nav-item">
