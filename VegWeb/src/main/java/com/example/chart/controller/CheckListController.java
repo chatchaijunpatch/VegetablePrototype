@@ -33,7 +33,6 @@ public class CheckListController {
     }
     @GetMapping("/list/edit/{id}")
     public String editPayment(@PathVariable UUID id, Model model,Authentication authentication){
-        System.out.println(service.getDummyByID(id).getCartList());
         VegOrder set = service.getOneById(id);
         Calendar calndr = Calendar.getInstance();
         set.setPayment(calndr.getTime());

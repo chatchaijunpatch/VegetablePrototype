@@ -147,35 +147,16 @@
                 <a th:href="@{/vegetable}" class="btn">invetory</a>
             </article>
             <!-- products invetory -->
-            <article class="products-inventory clearfix">
+            <article class="products-inventory clearfix" >
                 <!-- single product -->
-                <div class="product">
+                <div class="product" th:each="vegetable : ${vegetables}">
                     <img
-                            src="./images/carrot.jpg"
+                            th:src="${'../../images/'+ vegetable.name +'.jpg'}"
                             alt="single product"
                             class="product-img"
                     />
-                    <h4 class="product-title">Carrots</h4>
-                </div>
-                <!-- end of single product -->
-                <!-- single product -->
-                <div class="product">
-                    <img
-                            src="./images/cabbage.jpg"
-                            alt="single product"
-                            class="product-img"
-                    />
-                    <h4 class="product-title">Cabbage</h4>
-                </div>
-                <!-- end of single product -->
-                <!-- single product -->
-                <div class="product">
-                    <img
-                            src="./images/watermelon.jpg"
-                            alt="single product"
-                            class="product-img"
-                    />
-                    <h4 class="product-title">Watermelon</h4>
+                    <h4 class="product-title" th:text="${vegetable.name}"></h4>
+                    <h4 class="product-price" th:text="${vegetable.price+ ' Baht/KG'}"></h4>
                 </div>
                 <!-- end of single product -->
             </article>

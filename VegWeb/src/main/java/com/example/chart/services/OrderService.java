@@ -14,7 +14,7 @@ import java.util.*;
 import static java.lang.Integer.parseInt;
 
 @Service
-public class OrderService {
+public  class OrderService {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -38,7 +38,6 @@ public class OrderService {
         vegOrder.setUsername(userService.getUser().getUsername());
         vegOrder.setVegetable(cartService.getCart().toString());
         vegOrder.setStatus("Underpayment");
-        System.out.println(vegOrder.getVegetable());
         restTemplate.postForObject(url, vegOrder, VegOrder.class);
     }
     public void OrderConfig(){
@@ -62,10 +61,15 @@ public class OrderService {
                 cart.get(i).add(new Cart(vegetable,parseInt(list1.get(4))));
             }
         }
+        Collections.sort(cart, new SortCompare());
     }
     public List<VegOrder> getDummy(String name){ //getall
         this.OrderConfig();
         List<VegOrder> cart2 = new ArrayList<>();
+
+
+
+
         if (name.equals("admin")){
             return cart;
         }

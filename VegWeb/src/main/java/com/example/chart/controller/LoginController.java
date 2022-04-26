@@ -2,6 +2,7 @@ package com.example.chart.controller;
 
 import com.example.chart.entities.User;
 import com.example.chart.services.UserService;
+import com.example.chart.services.VegetableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,8 @@ public class LoginController {
     @Autowired
     private UserService userService;
     private User username;
+    @Autowired
+    private VegetableService service;
 //    @RequestMapping("/")
 //    public String getHomePage() {
 //        return "login";
@@ -30,7 +33,8 @@ public class LoginController {
 //        return "login";
 //    }
     @RequestMapping("")
-    public  String getHome(){
+    public  String getHome(Model model){
+        model.addAttribute("vegetables", service.getAll());
         return "home";
     }
 

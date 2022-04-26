@@ -6,14 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 
-public class VegOrder
-{
+public class VegOrder {
     private UUID order_Id;
     private Date date;
     private String name;
@@ -140,4 +140,27 @@ public class VegOrder
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getStringDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/M/dd");
+        String stringdate = sdf.format(this.getDate());
+        return stringdate;
+    }
+    public String getStringPayment(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/M/dd");
+        Date payment = this.getPayment();
+        String stringdate = "";
+        try {
+            stringdate = sdf.format(payment);
+        }
+        catch (NullPointerException e){
+
+        }
+        return stringdate;
+    }
+
+//    @Override
+//    public int compareTo(VegOrder o) {
+//        return o.getDate().compareTo(getDate());
+//    }
 }
